@@ -4,12 +4,13 @@ import javax.swing.JPanel;
 import java.awt.Color;
 
 /**
- * Renderer organisiert das Drumherum um die tatsächlich sichtbare Spielwelt.
+ * Renderer handles the rendering of the scene to a RenderWindow.
  */
 public class Renderer{
   /**
-   * Standartkonstruktor.
-   * Benötigt den zu rendernden GameState sowie die Auflösung.
+   * Default CTor
+	 * Accepts as parameters the GameState that is to be rendered as well as the
+	 * resolution.
    */
   public Renderer(GameState s, int xRes, int yRes){
     //rComps = new RenderComponent[10];
@@ -26,7 +27,7 @@ public class Renderer{
   }
   
   /**
-   * Rendert die Szene.
+   * Renders the scene.
    */
   public void render(){
     renderWnd.cSys = gState.cSys;

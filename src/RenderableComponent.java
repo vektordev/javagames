@@ -1,18 +1,15 @@
 import java.awt.Color;
 /**
- * Schnittstelle zwischen Entity und RenderWindow.
- * Enthält alle Informationen, die RenderWindow zum rendern braucht.
- * Bisher undefinierte types müssen erst in RenderWindow implementiert werden.
+ * Interface between Entity and RenderWindow.
+ * Enables RenderWindow to render an entity.
  */
 public class RenderableComponent extends Component{
   /**
 	 * Default CTor
-	 * Requires it's ID in the Component System and a pointer to the associated entity.
-  * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity sowie den Typ des RenderableComponents.
-  * Type = 1 -> schwarz
-  * Type = 2 -> gelb
-  * Nur von ComponentSystem aus aufrufen!
-  */
+	 * Requires it's ID in the Component System and a pointer to the associated entity as well as the object's type
+   * Type = 1 -> foreground
+   * Type = 2 -> background
+   */
   public RenderableComponent(int id, Entity up, int type){
     super(id, up);
     farbe = null;

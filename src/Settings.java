@@ -2,21 +2,24 @@ import java.util.Scanner;
 import javax.swing.WindowConstants;
 
 /**
- * Settings beinhaltet alle Einstellungen, die der Spieler eingeben kann. Diese werden im Normalfall über die Konsole erfragt.
+ * Settings contains all the settings the user can make.
+ * These are queried by console.
  */
 public class Settings{
   /**
-   * Standart-Konstruktor. Holt über die Konsole die ersten Einstellungen.
+   * Default CTor
+	 * Generates initial settings by console IO.
    */
   public Settings(){
     sysin = new Scanner(System.in);
-    System.out.println("Spielen wir ein Spiel!");
-    System.out.println("Spieler 1 steuert mit WASD, Spieler 2 mit den Pfeiltasten.");
+    System.out.println("Let's play a game!");
+    System.out.println("Player 1 controls: WASD. Player 2 controls: Arrow keys.");
     getSettings();
   }
   
   /**
-   * Alternativer Konstruktor für hardcoded-settings.
+   * alternative CTor
+	 * generates Settings from hardcoded parameters.
    */
   public Settings(boolean mp, int pu, int dt){;
     multiplayer = mp;
@@ -25,10 +28,10 @@ public class Settings{
   }
   
   /**
-   * Erzeugt über Konsolendialog Settings für die nächste Runde.
+   * Creates the settings for the next round, using console IO.
    */
   public void getNextSettings(){
-    System.out.println("Neues Spiel? (y/n)");
+    System.out.println("New game? (y/n)");
     boolean parseable = false;
     String in;
     while (!parseable) { 
@@ -41,7 +44,7 @@ public class Settings{
         System.exit(WindowConstants.EXIT_ON_CLOSE);
       } // end of if
     } // end of while
-    System.out.println("Die selben Einstellungen? (y/n)");
+    System.out.println("Keep the settings? (y/n)");
     parseable = false;
     while (!parseable) { 
       in = sysin.nextLine();
@@ -57,7 +60,7 @@ public class Settings{
   }
   
   private void getSettings(){
-    System.out.println("2 Spieler? (y/n)");
+    System.out.println("2 players? (y/n)");
     boolean parseable = false;
     String input;
     while (!parseable) { 
@@ -75,14 +78,14 @@ public class Settings{
       } // end of if
     } // end of while
     
-    System.out.println("Spielgeschwindigkeit? (1-3)");
+    System.out.println("Game speed? (1-3)");
     int in = 0;
     while (in <= 0 || in > 3) { 
       in = sysin.nextInt();
     } // end of while
     deltaTimeMillis = 200 / in;
     
-    System.out.println("Anzahl der Pickups? (1-10)");
+    System.out.println("Number of collectibles? (1-10)");
     in = 0;
     while (in <= 0 || in > 10) { 
       in = sysin.nextInt();

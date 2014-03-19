@@ -1,16 +1,18 @@
+/**
+* Implements Physical interaction of objects.
+*/
 public class PhysicalComponent extends Component{
   /**
 	 * Default CTor
-	 * Requires it's ID in the Component System and a pointer to the associated entity.
-  * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity sowie Koordinaten, Form und Typ des Objekts.
-  * Type = 0 -> Geist
-  * Type = 1 -> Schlangenkopf
-  * Type = 2 -> Schlangenrumpf
-  * Type = 3 -> Wand
-  * Type = 4 -> Block
-  * Type = 5 -> PickUp
-  * Nur von ComponentSystem aus aufrufen!
-  */
+	 * Requires it's ID in the Component System and a pointer to the associated
+   * entity as well as position coordinates, shape and type of the object.
+   * Type = 0 -> ghost
+   * Type = 1 -> Snake head
+   * Type = 2 -> Snake body
+   * Type = 3 -> wall
+   * Type = 4 -> block
+   * Type = 5 -> collectible
+   */
   public PhysicalComponent(int id, Entity up, int x, int y, CollisionShape cShape, int type){
     super(id, up);
     xPos = x;

@@ -3,11 +3,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.WindowConstants;
 
 /**
- * Inputhandling basierend auf KeyListener.
+ * Key listener based input handling 
  */
 public class InputSystem implements KeyListener{
   /**
-   * Standart-Konstruktor.
+   * Default CTor
    */
   public InputSystem(){;
     controlled1 = null;
@@ -15,7 +15,7 @@ public class InputSystem implements KeyListener{
   }
   
   /**
-  * Führt gebuffertes Input aus und leert den Buffer.
+  * executed buffered input and empties the buffer.
   */
   public void applyInput(){
     if (c1NextCommand != 0 && controlled1 != null)
@@ -42,7 +42,7 @@ public class InputSystem implements KeyListener{
   }  
   
   /**
-  * Implementiert Tastendruck-Events.
+  * Handles key events and writes them to a buffer.
   */
   public void keyPressed(KeyEvent e){
     int code = e.getKeyCode();
@@ -76,36 +76,17 @@ public class InputSystem implements KeyListener{
       default: 
       
     }
-    /*
-    switch (code) {
-    case  KeyEvent.VK_A: 
-    c1NextCommand = 1;//left
-    break;
-    case  KeyEvent.VK_D: 
-    c1NextCommand = 2;//right
-    break;
-    case  KeyEvent.VK_LEFT: 
-    c2NextCommand = 1;//left
-    break;
-    case  KeyEvent.VK_RIGHT: 
-    c2NextCommand = 2;//right
-    break;
-    case KeyEvent.VK_ESCAPE:
-    System.exit(WindowConstants.EXIT_ON_CLOSE);
-    default: 
-    
-    } // end of switch*/
   }
   
   /**
-  * Leere Funktion
+  * do nothing
   */
   public void keyReleased(KeyEvent e){
     //nil
   }
   
   /**
-  * Leere Funktion
+  * do nothing
   */
   public void keyTyped(KeyEvent e){
     //nil

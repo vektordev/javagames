@@ -1,10 +1,10 @@
 /**
- * Enthält die gesamte Spiel-Logik und alle verbundenen Daten ohne Rendering.
+ * Contains all the game logic and associated data. No rendering.
  */
 public class GameState{
   /**
-  * Standart-Constructor.
-  * Benötigt die geforderte Größe der Spielwelt in pixeln. 20 pixel = 1 Kachel.
+  * default CTor
+  * Accepts as parameter the desired x/y resolution in pixels (20 = 1 tile) as well as Settings.
   */
   public GameState(int xRes, int yRes, Settings settings){;
     isRunning = true;
@@ -45,7 +45,7 @@ public class GameState{
   }
   
   /**
-  * Führt die Simulation um einen Schritt fort.
+  * Steps the simulation.
   */
   public void run(){
     //System.out.println(playerLength[0]);
@@ -115,34 +115,34 @@ public class GameState{
     System.out.println();
     System.out.println();
     if (numPlayers > 1) {
-      System.out.println("" + numPlayers + " Spieler");
+      System.out.println("" + numPlayers + " players");
       boolean[] alive = new boolean[numPlayers];
       for (int i = 0; i < alive.length; i++) {
         alive[i] = false;
         if (entities[i] != null && entities[i].sComp !=  null && entities[i].sComp.last != null) {
           alive[i] = true;
         } // end of if
-        System.out.println("Spieler " + (i+1) + " hat die Laenge " + playerLength[i] + " erreicht und hat " + ((alive[i])? "" : "nicht ") + "ueberlebt.");
+        System.out.println("Player " + (i+1) + " has reached a length of " + playerLength[i] + " and has " + ((alive[i])? "" : "not ") + "survived.");
       } // end of for
       if (alive[0]) {
-        System.out.println("Spieler 1 hat gewonnen");
+        System.out.println("Player 1 won");
       } else {
         if (alive[1]) {
-          System.out.println("Spieler 2 hat gewonnen");
+          System.out.println("Player 2 won");
         } else {
           if (playerLength[0] > playerLength[1]) {
-            System.out.println("Spieler 1 hat gewonnen");
+            System.out.println("Player 1 won");
           } else{
             if (playerLength[1] > playerLength[0]) {
-              System.out.println("Spieler 2 hat gewonnen");
+              System.out.println("Player 2 won");
             } else {
-              System.out.println("Unentschieden");
+              System.out.println("draw");
               } // end of if-else
             }
           } // end of if-else
         } // end of if-else
     } else {
-      System.out.println("Der Spieler hat die Laenge " + playerLength[0] + " erreicht.");
+      System.out.println("The player has reached a length of " + playerLength[0] + ".");
     } // end of if-else
     System.out.println();
     System.out.println();

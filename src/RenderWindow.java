@@ -3,13 +3,13 @@ import javax.swing.JPanel;
 import java.awt.Color;
 
 /**
- * JPanel-Implementierung, die paintComponent alle RenderableComponents des gegebene ComponentSystems rendert.
+ * JPanel-instance which renders a given ComponentSystem's RenderableComponents.
  */
 public class RenderWindow extends JPanel{
   /**
-  * Standart-Constructor.
-  * Benötigt das zu rendernde ComponentSystem.
-  */
+   * Default CTor.
+	 * Accepts as parameter a Component System that is to be rendered.
+   */
   public RenderWindow(ComponentSystem compos){
     //rSys = sys;
     cSys = compos;
@@ -56,7 +56,7 @@ public class RenderWindow extends JPanel{
   }
   
   /**
-  * Aktualisiert die Grafik.
+  * Re-renders the scene.
   */
   public void update(){
     repaint();

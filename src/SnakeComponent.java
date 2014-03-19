@@ -1,14 +1,13 @@
 /**
- * Bewegungskoodination für Schlangenrumpf-Segmente.
+ * Coordinates the Snake's element's movement.
  */
 public class SnakeComponent extends Component{
   
   /**
 	 * Default CTor
-	 * Requires it's ID in the Component System and a pointer to the associated entity.
-  * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity sowie das nächste Element der Schlange.
-  * Nur von ComponentSystem aus aufrufen!
-  */
+	 * Requires it's ID in the Component System and a pointer to the associated
+	 * entity as well as a pointer to the Snake's next element.
+   */
   public SnakeComponent(int i, Entity up, SnakeComponent next){
     super(i, up);
     elementsToGrow = 0;
@@ -19,7 +18,7 @@ public class SnakeComponent extends Component{
   }
   
   /**
-   * Gibt das erste Element der Schlange zurück.
+   * Returns the snake's head.
    */
   public SnakeComponent getFirst(){
     if (next == null) {
@@ -29,9 +28,8 @@ public class SnakeComponent extends Component{
   }
   
   /**
-   * Gibt das letzte Element der Schlange zurück.
-   * Funkitoniert nur, sofern der Zeiger 'last' des ersten Elements (Kopf) gesetzt wurde.
-   * Dies wird von EntityFactory standartmäßig korrekt ausgeführt.
+   * Returns the snake's last element.
+	 * Relies on EntityFactory to set the last-pointer correctly.
    */
   public SnakeComponent getLast(){
     return getFirst().last;

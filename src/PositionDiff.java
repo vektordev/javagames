@@ -1,9 +1,9 @@
 /**
- * Positionsunterschied zwischen zwei CollisionShapes
+ * Relative position of two CollisionShapes
  */
 public class PositionDiff{
   /**
-   * Standart-Constructor
+   * Default CTor
    */
   public PositionDiff(int x, int y){
     pos = new int[2];
@@ -12,14 +12,14 @@ public class PositionDiff{
   }
   
   /**
-   * Gibt ein invertiertes PositionDiff zurück.
+   * Returns the inverse PositionDiff
    */
   public PositionDiff invert(){
     return new PositionDiff(-pos[0], -pos[1]);
   }
   
   /**
-   * Gibt die Position als int[2] zurück.
+   * Returns the position difference as int[].
    */
   public int[] getPos(){
     int[] ret = new int[2];
