@@ -1,9 +1,9 @@
 /**
- * Entität in der Spielwelt.
+ * An Entity in the game world.
  */
 public class Entity{
   /**
-  * Standart-Constructor für leeren Entity
+  * Default-CTor for empty Entity
   */
   Entity(int id){
     this.id = id;
@@ -28,7 +28,7 @@ public class Entity{
   }
   
   /**
-  * Gibt Position als int[2] zurück. [0] ist x, [1] ist y.
+  * Returns the position as an int[2]. [0] is x, [1] is y.
   */
   public int[] getPosition(){
     int[] ret = new int[2];

@@ -1,10 +1,10 @@
 /**
- * Kollisionserkennung und Versendung von Ereignissen.
+ * Detects Collisions and sends out events.
  */
 
 public class CollisionDispatcher{
   /**
-  * Erkennt alle nicht gefilterten Kollisionen und sendet Ereignisse an alle betroffenen Entities.
+  * Detects all collisions, sends out events.
   */
   public void dispatchCollisions(PhysicalComponent[] in){
     //System.out.println("checking collisions");
@@ -44,8 +44,8 @@ public class CollisionDispatcher{
   }
   
   /**
-  * Prüft für einen bestimmten PhysicalComponent bei index i alle Kollisionen.
-  * Es werden keine Ereignisse verschickt, nur ein boolean zurückgegeben.
+  * checks whether the Component at index i collides with any other component.
+	* Doesn't send out events, only returns a boolean.
   */
   public boolean checkCollisionsNoDispatch(int i, PhysicalComponent[] in){
     //System.out.println("NoDispatch CollisionDetect");

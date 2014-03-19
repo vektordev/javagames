@@ -1,18 +1,21 @@
 import java.awt.Color;
 
 /**
- * Factory für Entities.
+ * Entity Factory. Order your Entities here.
  */
 public class EntityFactory{
   /**
-  * Standart-Constructor.
-  * benötigt ein ComponentSystem als Quelle für Components.
+  * Default CTor.
+	* Requires a ComponentSystem from which to get Components.
   */
   public EntityFactory(ComponentSystem s){
     cSys = s;
     cEnts = 0;
   }
   
+  /**
+  * Creates a grass tile of random color at a given position.
+  */
   public Entity createGrassTile(int x, int y){
     Entity ret = new Entity(cEnts);
     cEnts ++;
@@ -27,7 +30,7 @@ public class EntityFactory{
   }
   
   /**
-  * erstellt einen Schlangenkopf bei gegebener Position und Richtung (1-4, 1 ist rechts, 4 ist oben)
+  * Given a position and direction (1 -> right, 4 -> up), this function creates a Snake head.
   */
   public Entity createEntity(int x, int y, int direction){
     Entity ret = new Entity(cEnts);
@@ -48,7 +51,7 @@ public class EntityFactory{
   }
   
   /**
-  * Erstellt am angegebenen Ort ein PickUp
+  * Creates a pickup at a given position.
   */
   public Entity createPickup(int x, int y){
     Entity ret = new Entity(cEnts);
@@ -64,7 +67,7 @@ public class EntityFactory{
   }
   
   /**
-  * Hängt an den gegebenen Schlangenschwanz ein Glied an.
+  * Appends a snake segment to a given tail of a Snake. Coloring depends on SP/MP mode.
   */
   public Entity createSnakeTail(Entity tail, boolean multi){
     Entity ret = new Entity(cEnts);
@@ -78,7 +81,7 @@ public class EntityFactory{
     int farber = (int)(Math.random()* 100) - 50;
     int farbeg = (int)(Math.random()* 100) - 50;
     int farbeb = (int)(Math.random()* 100) - 50;
-    if(multi){
+    if(multi){//in multiplayer, colors are assigned differently.
       if (firstID == 0) {
         farber*= 3;
       } else{
@@ -116,7 +119,7 @@ public class EntityFactory{
   }
   
   /**
-  * Erstellt die Worldborder in der gegebenen Richtung (1-4, 1 ist rechts, 4 ist oben).
+  * Creates a World Border in the given direction. (1 -> right, 4 -> up)
   */
   public Entity createWorldBorder(int direction){
     Entity ret = new Entity(cEnts);

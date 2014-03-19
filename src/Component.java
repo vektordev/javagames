@@ -1,11 +1,11 @@
 /**
- * Basisklasse für alle Komponenten von Entities.
+ * Base class for any Components of Entities.
  */
 
 public abstract class Component{
   /**
-   * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity.
-   * Nur von Implementierungen von Component aus aufrufen!
+	 * Default CTor
+	 * Requires it's ID in the Component System and a pointer to the associated entity.
    */
   public Component(int i, Entity up){;
     index = i;

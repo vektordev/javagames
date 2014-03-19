@@ -4,7 +4,8 @@
 public class SnakeComponent extends Component{
   
   /**
-  * Standart-Constructor
+	 * Default CTor
+	 * Requires it's ID in the Component System and a pointer to the associated entity.
   * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity sowie das nächste Element der Schlange.
   * Nur von ComponentSystem aus aufrufen!
   */

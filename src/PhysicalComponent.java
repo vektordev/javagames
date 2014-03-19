@@ -1,6 +1,7 @@
 public class PhysicalComponent extends Component{
   /**
-  * Standart-Constructor
+	 * Default CTor
+	 * Requires it's ID in the Component System and a pointer to the associated entity.
   * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity sowie Koordinaten, Form und Typ des Objekts.
   * Type = 0 -> Geist
   * Type = 1 -> Schlangenkopf

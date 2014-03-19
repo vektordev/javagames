@@ -1,18 +1,17 @@
 /**
- * Kontroll-Schnittstelle zwischen InputSystem und Entity
+ * Handles Input into Entities. Acts as access point for InputSystem.
  */
 public class ControllableComponent extends Component{
   /**
-  * Standart-Constructor
-  * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity.
-  * Nur von ComponentSystem aus aufrufen!
+	 * Default CTor
+	 * Requires it's ID in the Component System and a pointer to the associated entity.
   */
   public ControllableComponent(int i, Entity up){
     super(i, up);
   }
   
   /**
-   * Dreht den Kopf um 90° nach links
+   * Rotate left by 90°.
    */
   public void left(){
     direction--;
@@ -23,11 +22,11 @@ public class ControllableComponent extends Component{
   }
   
   /**
-   * Setzt die Richtung. (absolut, nicht relativ)
-   * 1: rechts
-   * 2: unten
-   * 3: links
-   * 4: oben
+   * Sets an absolute direction.
+   * 1: right
+   * 2: down
+   * 3: left
+   * 4: up
    */
   public void setDirection(int dir){
     if (dir > 0 && dir < 5) {
@@ -37,7 +36,7 @@ public class ControllableComponent extends Component{
   }
   
   /**
-   * Dreht den Kopf um 90° nach rechts.
+   * Rotate right by 90°.
    */
   public void right(){
     direction++;

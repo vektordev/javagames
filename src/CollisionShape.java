@@ -1,15 +1,14 @@
 /**
- * Grundlage für alle CollisionShapes.
- * Implementiert den Typ
+ * Abstract parent class for any Collision Shape.
  */
 public abstract class CollisionShape{
   /**
-   * Implementiert die Kollision der Shape 
+   * Resolves a collision and generates a CollisionSolution in the process.
    */
   public abstract CollisionSolution collideWith(CollisionShape otherOne, PositionDiff pos);
   
   /**
-   * Gibt den Typ der Shape zurück. Muss für alle CollisionShapes einzigartig sein.
+   * Returns a unique type ID for any given subclass of CollisionShape
    */
   public abstract int getType();
 }

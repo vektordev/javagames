@@ -1,14 +1,14 @@
 /**
- * An den Achsen ausgerichtete Gerade, die die Spielwelt in einen nicht passierbaren Teil und einen passierbaren Teil teilt.
+ * Axis-aligned line that splits the worls into a inaccesible and an accesible part.
  */
 public class AABorderShape extends CollisionShape{
   /**
-  * Standart-Constructor.
-  * Benötigt eine Achse.
-  * 1: Schneidet alles links des Entitys ab
-  * 1: Schneidet alles unterhalb des Entitys ab 
-  * 1: Schneidet alles rechts des Entitys ab 
-  * 1: Schneidet alles oberhalb des Entitys ab
+  * Default-Ctor.
+  * Parameter: int as axis direction
+  * 1: cuts off left of this entity's position
+  * 2: cuts off below this entity's position
+  * 3: cuts off right of this entity's position
+  * 4: cuts off above this entity's position
   */
   public AABorderShape(int axis){
     this.axis = axis;
@@ -18,7 +18,7 @@ public class AABorderShape extends CollisionShape{
   * @inheritDoc
   */
   public int getType(){
-    //Java erlaubt bei Overrides keine static functions... aber egal -.-
+    //should be static for the most part, but whatever. This function is basically just type info.
     return 2;
   }
   

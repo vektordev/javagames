@@ -1,9 +1,9 @@
 /**
- * Implementierung der Kollision eines Punkts.
+ * Dot-Shaped collision object.
  */
 public class Dot extends CollisionShape{
   /**
-   * Standart-Constructur ohne Parameter.
+   * Default-CTor
    */
   public Dot(){
   }

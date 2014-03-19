@@ -6,7 +6,8 @@ import java.awt.Color;
  */
 public class RenderableComponent extends Component{
   /**
-  * Standart-Constructor
+	 * Default CTor
+	 * Requires it's ID in the Component System and a pointer to the associated entity.
   * Benötigt den Index unter dem es im ComponentSystem zu finden ist und einen Zeiger auf den zugeordneten Entity sowie den Typ des RenderableComponents.
   * Type = 1 -> schwarz
   * Type = 2 -> gelb

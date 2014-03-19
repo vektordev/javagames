@@ -3,11 +3,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.Timer;
 
 /**
- * Verbindet einen Renderer, einen Timer und einen GameState zu einer Anwendung.
+ * Creates an application from a Renderer, a GameState and a Timer.
  */
 public class ClientApplication implements ActionListener{
   /**
-  * Standart-Constructor
+  * Default-Ctor
   */
   public ClientApplication(){;
     //settings = new Settings(false, 5, 50);
@@ -58,7 +58,7 @@ public class ClientApplication implements ActionListener{
   }
   
   /**
-  * Startet die Anwendung.
+  * starts the application
   */
   public void run(){
     timer.start();

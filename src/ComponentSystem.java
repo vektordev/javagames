@@ -1,10 +1,10 @@
 import java.util.Vector;
 /**
- * Speichert alle Components und organisiert die Erstellung Neuer. Bitte nur über diese Klasse neue Components erstellen.
+ * Acts as a factory and container for Components of all tastes.
  */
 public class ComponentSystem{
   /**
-  * Standart-Constructor
+  * Default-CTor
   */
   
   ComponentSystem(){
@@ -15,7 +15,7 @@ public class ComponentSystem{
   }
   
   /**
-  * Standart-Quelle für RenderableComponents
+  * Call for an instance of RenderableComponent.
   */
   public RenderableComponent getNewRendComp(Entity up, int type){
     //RenderableComponent ret = new RenderableComponent();
@@ -34,7 +34,7 @@ public class ComponentSystem{
   }
   
   /**
-  * Standart-Quelle für SnakeComponents.
+  * Call for an instance of SnakeComponent.
   */
   public SnakeComponent getNewSComp(Entity up, SnakeComponent next){
     for (int i = 0; i<rComps.length; i++) {
@@ -48,7 +48,7 @@ public class ComponentSystem{
   }
   
   /**
-  * Standart-Quelle für PhysicalComponents.
+  * Call for an instance of PhysicalComponent.
   */
   public PhysicalComponent getNewPhysComp(Entity up, int x, int y, CollisionShape cShape, int type){
     for (int i = 0; i<pComps.length; i++) {
@@ -62,7 +62,7 @@ public class ComponentSystem{
   }
   
   /**
-  * Standart-Quelle für ControllableComponents.
+  * Call for an instance of ControllableComponent.
   */
   public ControllableComponent getNewContComp(Entity up){
     for (int i = 0; i<cComps.length; i++) {

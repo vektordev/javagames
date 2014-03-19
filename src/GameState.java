@@ -170,7 +170,7 @@ public class GameState{
       } // end of if
     } // end of for
     if (index == -1) {
-      System.out.println("Houston, standby, we may have a Problem");
+      System.out.println("Houston, standby, we may have had a Problem");
     } // end of if
     while (cDis.checkCollisionsNoDispatch(entities[index].pComp.index, cSys.pComps)) { 
       entities[index].pComp.xPos = ((int)(Math.random() * ((int)(xSize/20)))) * 20;

@@ -1,23 +1,23 @@
 /**
- * Container für alle Daten die bei der Erkennung einer Kollision erarbeitet werden.
+ * Container for the result of a collision.
  */
 public class CollisionSolution{
   /**
-  * Standart-Constructor für leere CollisionSolution
+  * Standart-Constructor for empty CollisionSolution
   */
   public CollisionSolution(){
     collides = false;
   }
   
   /**
-   * Gibt zurück, ob die CollisionShapes kollidieren.
+   * Returns whether the shapes collide.
    */
   public boolean isColliding(){
     return collides;
   }
   
   /**
-   * Setzt die Kollision auf den Parameterwert.
+	 * Sets whether the shapes collide.
    */
   public void setCollides(boolean in){
     collides = in;
