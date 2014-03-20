@@ -23,7 +23,4 @@ public class RenderableComponent extends Component{
   protected int size;
   protected boolean renderMe;
   protected Color farbe;
-  //type:
-  //1 = snake
-  //2 = Pickup
 }

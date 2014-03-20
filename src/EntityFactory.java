@@ -49,6 +49,19 @@ public class EntityFactory{
     ret.rComp.renderMe = true;
     return ret;
   }
+
+	/**
+  * Given a position, this function creates a block.
+  */
+  public Entity createBlock(int x, int y){
+    Entity ret = new Entity(cEnts);
+    cEnts ++;
+    ret.rComp = cSys.getNewRendComp(ret, 1);
+    ret.pComp = cSys.getNewPhysComp(ret, x, y, new Dot(), 4);
+    ret.rComp.farbe = Color.BLACK;
+    ret.rComp.renderMe = true;
+    return ret;
+  }
   
   /**
   * Creates a pickup at a given position.

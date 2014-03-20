@@ -33,6 +33,10 @@ public class GameState{
     entities[5] = eFac.createWorldBorder(4);
     createBackground(xRes, yRes);
     spawnPickup(settings.getNoOfPickups());
+		spawnRock();
+		spawnRock();
+		spawnRock();
+		spawnRock();
   }
   
   private void createBackground(int x, int y){
@@ -88,6 +92,7 @@ public class GameState{
       if(entities[i] != null && entities[i].killThisThing){
         if (entities[i].pComp.type == 5) {
           spawnPickup();
+					spawnRock();//Muahahaha!
         } else{
           //assuming that this is a Snake
           isRunning = false;
@@ -154,19 +159,36 @@ public class GameState{
       spawnPickup();
     } // end of for
   }
-  
-  private void spawnPickup(){
-    //TODO: Find Free Position
-    //System.out.println("creating shit n stuff");
+
+
+	//TODO: Refactor the following 2 functions into one.
+	private void spawnRock(){
     int xCoord = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
     int yCoord = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
     int index = -1;
     for (int i = 0; i< entities.length && (index == -1); i++) {
-      //System.out.println("try");
+      if (entities[i] == null) {
+        entities[i] = eFac.createBlock(xCoord, yCoord);
+        index = i;
+      } // end of if
+    } // end of for
+    if (index == -1) {
+      System.out.println("Houston, standby, we may have had a Problem");
+    }
+    while (cDis.checkCollisionsNoDispatch(entities[index].pComp.index, cSys.pComps)) { 
+      entities[index].pComp.xPos = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
+      entities[index].pComp.yPos = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
+    } // end of while
+	}
+  
+  private void spawnPickup(){
+    int xCoord = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
+    int yCoord = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
+    int index = -1;
+    for (int i = 0; i< entities.length && (index == -1); i++) {
       if (entities[i] == null) {
         entities[i] = eFac.createPickup(xCoord, yCoord);
         index = i;
-        //System.out.println("win");
       } // end of if
     } // end of for
     if (index == -1) {
@@ -175,7 +197,6 @@ public class GameState{
     while (cDis.checkCollisionsNoDispatch(entities[index].pComp.index, cSys.pComps)) { 
       entities[index].pComp.xPos = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
       entities[index].pComp.yPos = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
-      //System.out.println("Retrying positioning");
     } // end of while
   }
   
