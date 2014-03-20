@@ -11,7 +11,7 @@ public class ControllableComponent extends Component{
   }
   
   /**
-   * Rotate left by 90°.
+   * Rotate left by 90deg.
    */
   public void left(){
     direction--;
@@ -36,7 +36,7 @@ public class ControllableComponent extends Component{
   }
   
   /**
-   * Rotate right by 90°.
+   * Rotate right by 90deg.
    */
   public void right(){
     direction++;
