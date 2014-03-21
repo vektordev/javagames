@@ -12,9 +12,8 @@ public class ClientApplication implements ActionListener{
   public ClientApplication(){;
     //settings = new Settings(false, 5, 50);
     settings = new Settings();
-    boolean a = true;
-    int xRes = 600;
-    int yRes = 400;
+    int xRes = 800;
+    int yRes = 640;
     state = new GameState(xRes, yRes, settings);
     rnd = new Renderer(state, xRes, yRes);
     timer = new Timer(settings.getDeltaTimeMillis(), this);
@@ -24,7 +23,6 @@ public class ClientApplication implements ActionListener{
     if(settings.isMP())
     in.controlled2 = state.entities[1].cComp;
     run();
-    a = false;
   }
   
   private void setUp(){

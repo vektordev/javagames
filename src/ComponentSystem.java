@@ -6,12 +6,12 @@ public class ComponentSystem{
   /**
   * Default-CTor
   */
-  
+  //TODO: dynamically sized containers. Either a vector or a arraylist.
   ComponentSystem(){
-    rComps = new RenderableComponent[1205];
-    pComps = new PhysicalComponent[1209];
+    rComps = new RenderableComponent[2605];
+    pComps = new PhysicalComponent[2609];
     cComps = new ControllableComponent[2];
-    sComps = new SnakeComponent[605];
+    sComps = new SnakeComponent[1305];
   }
   
   /**

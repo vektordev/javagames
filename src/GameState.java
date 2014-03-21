@@ -14,7 +14,8 @@ public class GameState{
     xSize = xRes;
     ySize = yRes;
     playerLength = new int[2];
-    entities = new Entity[1209];
+    entities = new Entity[(xRes*yRes / 200) + 9];
+    //entities = new Entity[1209];
     entities[0] = eFac.createEntity(0,0,1);
     entities[0].cComp.updateVelocity();
     numPlayers = 1;
@@ -33,10 +34,10 @@ public class GameState{
     entities[5] = eFac.createWorldBorder(4);
     createBackground(xRes, yRes);
     spawnPickup(settings.getNoOfPickups());
-		spawnRock();
-		spawnRock();
-		spawnRock();
-		spawnRock();
+		//spawnRock();
+		//spawnRock();
+		//spawnRock();
+		//spawnRock();
   }
   
   private void createBackground(int x, int y){
@@ -88,8 +89,7 @@ public class GameState{
       
     } // end of for
     for (int i = 0; i < entities.length; i++) {
-      
-      if(entities[i] != null && entities[i].killThisThing){
+      if(entities[i] != null &&entities[i].killThisThing){
         if (entities[i].pComp.type == 5) {
           spawnPickup();
 					spawnRock();//Muahahaha!
@@ -161,44 +161,45 @@ public class GameState{
   }
 
 
-	//TODO: Refactor the following 2 functions into one.
 	private void spawnRock(){
     int xCoord = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
     int yCoord = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
-    int index = -1;
-    for (int i = 0; i< entities.length && (index == -1); i++) {
-      if (entities[i] == null) {
-        entities[i] = eFac.createBlock(xCoord, yCoord);
-        index = i;
-      } // end of if
-    } // end of for
-    if (index == -1) {
-      System.out.println("Houston, standby, we may have had a Problem");
-    }
-    while (cDis.checkCollisionsNoDispatch(entities[index].pComp.index, cSys.pComps)) { 
-      entities[index].pComp.xPos = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
-      entities[index].pComp.yPos = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
-    } // end of while
+		int index = getFreeEntityPosition();
+    
+		entities[index] = eFac.createBlock(xCoord, yCoord);
+
+    moveToValidPosition(entities[index]);
 	}
   
   private void spawnPickup(){
     int xCoord = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
     int yCoord = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
-    int index = -1;
-    for (int i = 0; i< entities.length && (index == -1); i++) {
-      if (entities[i] == null) {
-        entities[i] = eFac.createPickup(xCoord, yCoord);
-        index = i;
-      } // end of if
-    } // end of for
-    if (index == -1) {
-      System.out.println("Houston, standby, we may have had a Problem");
-    } // end of if
-    while (cDis.checkCollisionsNoDispatch(entities[index].pComp.index, cSys.pComps)) { 
-      entities[index].pComp.xPos = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
-      entities[index].pComp.yPos = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
-    } // end of while
+		int index = getFreeEntityPosition();
+
+    entities[index] = eFac.createPickup(xCoord, yCoord);
+
+    moveToValidPosition(entities[index]);
   }
+
+	private void moveToValidPosition(Entity thing){
+		while (cDis.checkCollisionsNoDispatch(thing.pComp.index, cSys.pComps)) { 
+      thing.pComp.xPos = ((int)(Math.random() * ((int)(xSize/20)))) * 20;
+      thing.pComp.yPos = ((int)(Math.random() * ((int)(ySize/20)))) * 20;
+    }
+	}
+
+	private int getFreeEntityPosition(){
+		int index = -1;
+		for (int i = 0; i< entities.length && (index == -1); i++) {
+      if (entities[i] == null) {
+        index = i;
+      }
+    }
+		if (index == -1) {
+      System.out.println("Houston, standby, we may have had a Problem");
+    }
+		return index;
+	}
   
   private int getFreeEntitiesSpace(){
     for (int i = 0; i< entities.length; i++) {
