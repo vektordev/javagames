@@ -51,9 +51,6 @@ public class RenderWindow extends JPanel{
       return;
     } // end of if
     int[] pos = cmp.upPtr.getPosition();
-		if(pos[0] == 0 && pos[1] == 0){
-			System.out.println("rendering: " + cmp.upPtr.id);
-		}
     g.setColor(cmp.farbe);
     g.fillRect(pos[0], pos[1] , cmp.size, cmp.size);
   }

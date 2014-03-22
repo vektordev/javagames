@@ -130,9 +130,6 @@ public class EntityFactory{
     } // end of if
     
 	  ret.rComp.farbe = new Color(farber, farbeg, farbeb, 255);
-  	System.out.println("created a new entity. ID: " + cEnts);
-    System.out.println("pos: " + ret.pComp.xPos + "/" + ret.pComp.yPos);
-		System.out.println("fakie-pos: " + ret.rComp.upPtr.getPosition()[0] + "/" + ret.rComp.upPtr.getPosition()[1]);
     cEnts++;
   	return ret;
   }
