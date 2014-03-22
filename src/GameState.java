@@ -53,32 +53,33 @@ public class GameState{
   * Steps the simulation.
   */
   public void run(){
-    //System.out.println(playerLength[0]);
-    //System.out.println(playerLength[1]);
-    //System.out.println("tick");
+    //detect collisions
     cDis.dispatchCollisions(cSys.pComps);
+
+		//grow all snakes, buffer next positions
     for (int i = 0; i < entities.length; i++) {
       
       if(entities[i] != null){
         if (entities[i].sComp != null && entities[i].sComp.elementsToGrow != 0) {
-          entities[getFreeEntitiesSpace()] = eFac.createSnakeTail(entities[i], isMultiplayer());
+					int newIndex = getFreeEntitiesSpace();
+          entities[newIndex] = eFac.createSnakeTail(entities[i], isMultiplayer());
           playerLength[entities[i].sComp.getFirst().upPtr.id]++;
           entities[i].sComp.elementsToGrow--;
-        } // end of if//*/
+					entities[newIndex].bufferNextPos();
+        }
         entities[i].bufferNextPos();
       }
-    } // end of for
+    }
+
+		//step all entities
     for (int i = 0; i < entities.length; i++) {
       if(entities[i] != null){
         
         entities[i].run();
-        /*if (entities[i].sComp != null && entities[i].sComp.elementsToGrow != 0) {
-        entities[getFreeEntitiesSpace()] = eFac.createSnakeTail(entities[i]);
-        entities[i].sComp.elementsToGrow--;
-        } // end of if//*/
-        //System.out.println("Entities: " + i);
       }
-    } // end of for
+    }
+
+		//move all entities to buffered positions
     for (int i = 0; i < entities.length; i++) {
       if(entities[i] != null){
         entities[i].moveToBuffPos();
@@ -87,7 +88,9 @@ public class GameState{
         } // end of if
       }
       
-    } // end of for
+    }
+
+		//clean up all entities that are flagged for destruction
     for (int i = 0; i < entities.length; i++) {
       if(entities[i] != null &&entities[i].killThisThing){
         if (entities[i].pComp.type == 5) {

@@ -87,7 +87,6 @@ public class EntityFactory{
   */
   public Entity createSnakeTail(Entity tail, boolean multi){
     Entity ret = new Entity(cEnts);
-    cEnts++;
     ret.pComp = cSys.getNewPhysComp(ret, tail.pComp.xPos, tail.pComp.yPos, new Dot(), 2);
     ret.sComp = cSys.getNewSComp(ret, tail.sComp);
     SnakeComponent first = ret.sComp.getFirst();
@@ -130,8 +129,12 @@ public class EntityFactory{
       farbeb = 0;
     } // end of if
     
-    ret.rComp.farbe = new Color(farber, farbeg, farbeb, 255);
-    return ret;
+	  ret.rComp.farbe = new Color(farber, farbeg, farbeb, 255);
+  	System.out.println("created a new entity. ID: " + cEnts);
+    System.out.println("pos: " + ret.pComp.xPos + "/" + ret.pComp.yPos);
+		System.out.println("fakie-pos: " + ret.rComp.upPtr.getPosition()[0] + "/" + ret.rComp.upPtr.getPosition()[1]);
+    cEnts++;
+  	return ret;
   }
   
   /**
