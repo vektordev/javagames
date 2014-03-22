@@ -58,7 +58,10 @@ public class EntityFactory{
     cEnts ++;
     ret.rComp = cSys.getNewRendComp(ret, 1);
     ret.pComp = cSys.getNewPhysComp(ret, x, y, new Dot(), 4);
-    ret.rComp.farbe = Color.BLACK;
+    int farber = (int)(Math.random()* 50);
+    int farbeg = (int)(Math.random()* 50);
+    int farbeb = (int)(Math.random()* 50);
+    ret.rComp.farbe = new Color(farber, farbeg, farbeb, 255);
     ret.rComp.renderMe = true;
     return ret;
   }
