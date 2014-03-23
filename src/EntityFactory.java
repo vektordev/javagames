@@ -24,7 +24,7 @@ public class EntityFactory{
     int colorr = (int)(Math.random() * 50);
     int colorg = (int)(Math.random() * 50);
     int colorb = (int)(Math.random() * 50);
-    ret.rComp.farbe = new Color(100+colorr, 200+colorg, colorb, 255);
+    ret.rComp.color = new Color(100+colorr, 200+colorg, colorb, 255);
     ret.rComp.renderMe = true;
     return ret;
   }
@@ -42,9 +42,9 @@ public class EntityFactory{
     ret.cComp = cSys.getNewContComp(ret);
     ret.cComp.direction = direction;
     if (ret.id == 0) {
-      ret.rComp.farbe = Color.RED;
+      ret.rComp.color = Color.RED;
     } else {
-      ret.rComp.farbe = Color.BLUE;
+      ret.rComp.color = Color.BLUE;
     }
     ret.rComp.renderMe = true;
     return ret;
@@ -61,7 +61,7 @@ public class EntityFactory{
     int colorr = (int)(Math.random()* 50);
     int colorg = (int)(Math.random()* 50);
     int colorb = (int)(Math.random()* 50);
-    ret.rComp.farbe = new Color(colorr, colorg, colorb, 255);
+    ret.rComp.color = new Color(colorr, colorg, colorb, 255);
     ret.rComp.renderMe = true;
     return ret;
   }
@@ -78,7 +78,7 @@ public class EntityFactory{
     int colorr = (int)(Math.random()* 20);
     int colorg = (int)(Math.random()* 20);
     int colorb = (int)(Math.random()* 20);
-    ret.rComp.farbe = new Color(230+colorr, 170+colorg, colorb, 255);
+    ret.rComp.color = new Color(230+colorr, 170+colorg, colorb, 255);
     return ret;
   }
   
@@ -103,9 +103,9 @@ public class EntityFactory{
         colorb*= 3;
       }
     } else {
-      colorr += ret.sComp.next.upPtr.rComp.farbe.getRed();
-      colorg += ret.sComp.next.upPtr.rComp.farbe.getGreen();
-      colorb += ret.sComp.next.upPtr.rComp.farbe.getBlue();
+      colorr += ret.sComp.next.upPtr.rComp.color.getRed();
+      colorg += ret.sComp.next.upPtr.rComp.color.getGreen();
+      colorb += ret.sComp.next.upPtr.rComp.color.getBlue();
     } // end of if-else
     
     if (colorr > 255) {
@@ -129,7 +129,7 @@ public class EntityFactory{
       colorb = 0;
     } // end of if
     
-	  ret.rComp.farbe = new Color(colorr, colorg, colorb, 255);
+	  ret.rComp.color = new Color(colorr, colorg, colorb, 255);
     cEnts++;
   	return ret;
   }

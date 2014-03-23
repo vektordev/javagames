@@ -42,7 +42,7 @@ public class RenderWindow extends JPanel{
       return;
     } // end of if
     int[] pos = cmp.upPtr.getPosition();
-    g.setColor(cmp.farbe);
+    g.setColor(cmp.color);
     g.fillRect(pos[0], pos[1] , cmp.size, cmp.size);
   }
   
@@ -51,7 +51,7 @@ public class RenderWindow extends JPanel{
       return;
     } // end of if
     int[] pos = cmp.upPtr.getPosition();
-    g.setColor(cmp.farbe);
+    g.setColor(cmp.color);
     g.fillRect(pos[0], pos[1] , cmp.size, cmp.size);
   }
   
