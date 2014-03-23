@@ -21,10 +21,10 @@ public class EntityFactory{
     cEnts ++;
     ret.rComp = cSys.getNewRendComp(ret, 2);
     ret.pComp = cSys.getNewPhysComp(ret, x, y, new Dot(), 0);
-    int farber = (int)(Math.random() * 50);
-    int farbeg = (int)(Math.random() * 50);
-    int farbeb = (int)(Math.random() * 50);
-    ret.rComp.farbe = new Color(100+farber, 200+farbeg, farbeb, 255);
+    int colorr = (int)(Math.random() * 50);
+    int colorg = (int)(Math.random() * 50);
+    int colorb = (int)(Math.random() * 50);
+    ret.rComp.farbe = new Color(100+colorr, 200+colorg, colorb, 255);
     ret.rComp.renderMe = true;
     return ret;
   }
@@ -58,10 +58,10 @@ public class EntityFactory{
     cEnts ++;
     ret.rComp = cSys.getNewRendComp(ret, 1);
     ret.pComp = cSys.getNewPhysComp(ret, x, y, new Dot(), 4);
-    int farber = (int)(Math.random()* 50);
-    int farbeg = (int)(Math.random()* 50);
-    int farbeb = (int)(Math.random()* 50);
-    ret.rComp.farbe = new Color(farber, farbeg, farbeb, 255);
+    int colorr = (int)(Math.random()* 50);
+    int colorg = (int)(Math.random()* 50);
+    int colorb = (int)(Math.random()* 50);
+    ret.rComp.farbe = new Color(colorr, colorg, colorb, 255);
     ret.rComp.renderMe = true;
     return ret;
   }
@@ -75,10 +75,10 @@ public class EntityFactory{
     ret.rComp = cSys.getNewRendComp(ret, 2);
     ret.pComp = cSys.getNewPhysComp(ret, x, y, new Dot(), 5);
     ret.rComp.renderMe = true;
-    int farber = (int)(Math.random()* 20);
-    int farbeg = (int)(Math.random()* 20);
-    int farbeb = (int)(Math.random()* 20);
-    ret.rComp.farbe = new Color(230+farber, 170+farbeg, farbeb, 255);
+    int colorr = (int)(Math.random()* 20);
+    int colorg = (int)(Math.random()* 20);
+    int colorb = (int)(Math.random()* 20);
+    ret.rComp.farbe = new Color(230+colorr, 170+colorg, colorb, 255);
     return ret;
   }
   
@@ -93,43 +93,43 @@ public class EntityFactory{
     int firstID = first.upPtr.id;
     first.last = ret.sComp;
     ret.rComp = cSys.getNewRendComp(ret, 1);
-    int farber = (int)(Math.random()* 100) - 50;
-    int farbeg = (int)(Math.random()* 100) - 50;
-    int farbeb = (int)(Math.random()* 100) - 50;
+    int colorr = (int)(Math.random()* 100) - 50;
+    int colorg = (int)(Math.random()* 100) - 50;
+    int colorb = (int)(Math.random()* 100) - 50;
     if(multi){//in multiplayer, colors are assigned differently.
       if (firstID == 0) {
-        farber*= 3;
+        colorr*= 3;
       } else{
-        farbeb*= 3;
+        colorb*= 3;
       }
     } else {
-      farber += ret.sComp.next.upPtr.rComp.farbe.getRed();
-      farbeg += ret.sComp.next.upPtr.rComp.farbe.getGreen();
-      farbeb += ret.sComp.next.upPtr.rComp.farbe.getBlue();
+      colorr += ret.sComp.next.upPtr.rComp.farbe.getRed();
+      colorg += ret.sComp.next.upPtr.rComp.farbe.getGreen();
+      colorb += ret.sComp.next.upPtr.rComp.farbe.getBlue();
     } // end of if-else
     
-    if (farber > 255) {
-      farber = 255;
+    if (colorr > 255) {
+      colorr = 255;
     } // end of if
-    if (farber < 0) {
-      farber = 0;
-    } // end of if
-    
-    if (farbeg > 255) {
-      farbeg = 255;
-    } // end of if
-    if (farbeg < 0) {
-      farbeg = 0;
+    if (colorr < 0) {
+      colorr = 0;
     } // end of if
     
-    if (farbeb > 255) {
-      farbeb = 255;
+    if (colorg > 255) {
+      colorg = 255;
     } // end of if
-    if (farbeb < 0) {
-      farbeb = 0;
+    if (colorg < 0) {
+      colorg = 0;
     } // end of if
     
-	  ret.rComp.farbe = new Color(farber, farbeg, farbeb, 255);
+    if (colorb > 255) {
+      colorb = 255;
+    } // end of if
+    if (colorb < 0) {
+      colorb = 0;
+    } // end of if
+    
+	  ret.rComp.farbe = new Color(colorr, colorg, colorb, 255);
     cEnts++;
   	return ret;
   }
