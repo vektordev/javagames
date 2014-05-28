@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 
+import exceptions.WrongSettingsException;
+
 public class SetupWindow extends JFrame {
 
 	//Statics
@@ -120,11 +122,15 @@ public class SetupWindow extends JFrame {
 	}
 	
 	public Settings getCurrentSettings(){
-		mySettings = new Settings(
-				multiplayer.isSelected(), 
-				vePickUps.getSelectedIndex() + 1,
-				200 / (veGameSpeed.getSelectedIndex() + 1)
-		);
+		try {
+			mySettings = new Settings(
+					multiplayer.isSelected(), 
+					vePickUps.getSelectedIndex() + 1,
+					200 / (veGameSpeed.getSelectedIndex() + 1)
+			);
+		} catch (WrongSettingsException e) {
+			new ErrorWindow("Wrong Settings!", e.getMessage());
+		}
 		return mySettings;
 	}
 

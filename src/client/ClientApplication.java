@@ -28,23 +28,6 @@ public class ClientApplication implements ActionListener {
 		//Functionality moved to function startGameWithSettings(Settings s)
 	}
 
-	private void setUp() {
-		rnd.getFrame().dispose();
-		rnd = null;
-		settings.getNextSettings();
-		state = new GameState(600, 400, settings);
-		rnd = new Renderer(state, 600, 400);
-		timer = new Timer(settings.getDeltaTimeMillis(), this);
-		in = new InputSystem();
-		rnd.getRenderWindow().addKeyListener(in);
-		rnd.setGameState(state);
-		rnd.getRenderWindow().setComponentSystem(state.cSys);
-		in.controlled1 = state.entities[0].getAssocControllableComponent();
-		if (settings.isMP())
-			in.controlled2 = state.entities[1].getAssocControllableComponent();
-		run();
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// System.out.println("Timer!");
